@@ -1,0 +1,63 @@
+# === OS FILES ===
+.DS_Store
+Thumbs.db
+
+# === NODE ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === BUILD OUTPUT ===
+dist/
+build/
+*.tsbuildinfo
+
+# === ENV FILES ===
+.env
+.env.local
+.env.*.local
+
+# === IDE SETTINGS ===
+.vscode/
+.idea/
+
+# === COVERAGE ===
+coverage/
+.nyc_output/
+*.lcov
+
+# === MISC ===
+logs/
+*.log
+*.pid
+*.seed
+*.tgz
+
+# === TEMP FILES ===
+*.swp
+*.swo
+*.bak
+
+# === BY TOOL ===
+
+# Parcel
+.cache/
+.parcel-cache/
+
+# Expo / React Native (optional based on setup)
+.expo/
+web-build/
+expo-env.d.ts
+
+# TypeScript cache
+*.tsbuildinfo
+
+# TSNode / ESM support
+.eslintrc.js
+.eslintrc.cjs
+.eslintrc.mjs
+
+# === GIT ===
+# (Optional: track specific subfolders with separate Git repos using sparse-checkout or submodules)
