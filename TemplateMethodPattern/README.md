@@ -7,3 +7,8 @@ The Template Method Pattern is a behavioral design pattern that defines the skel
 - I accidentally stagged all the files I made changes to before making the "init project git" commit
 
 - so I used the "git restore --staged ." command to unstage all the files.
+
+# Problems
+
+- fix the problems found in the tasks files
+- we probably could use encapsulation to hide the implementation details of the classes or create a base class to define the common interface for the classes
