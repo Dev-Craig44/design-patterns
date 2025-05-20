@@ -1,14 +1,20 @@
 import { AuditTrail } from "./AuditTrail";
+import { Task } from "./Task";
 
-export class TransferMoneyTask {
-  private auditTrail: AuditTrail;
-
-  constructor() {
-    this.auditTrail = new AuditTrail();
+// use the `extends` keyword to inherit from the Task class
+// hover the class name and press `ctrl + .` to auto import the implementation of the |Task| class
+export class TransferMoneyTask extends Task {
+  constructor(auditTrail: AuditTrail) {
+    // we need to call the constructor of the parent class
+    // we do this using the super() method
+    // this will call the constructor of the parent class
+    super(auditTrail);
   }
 
-  execute(): void {
-    this.auditTrail.record();
+  // we no longer need this execute method because we ipmlemented once in our base class
+
+  public doExecute(): void {
     console.log("Transfer money");
+    // this is where we would implement the logic for transferring money
   }
 }
