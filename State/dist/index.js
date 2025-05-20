@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Game_1 = require("./Game");
+const Jax_1 = require("./Jax");
+const Scorpio_1 = require("./Scorpio");
+const game = new Game_1.Game(new Jax_1.Jax());
+game.a();
+game.b();
+game.x();
+game.y();
+game.setCharacter(new Scorpio_1.Scorpio());
+game.a();
+game.b();
+game.x();
+game.y();
