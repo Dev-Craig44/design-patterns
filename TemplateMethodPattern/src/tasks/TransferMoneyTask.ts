@@ -13,8 +13,8 @@ export class TransferMoneyTask extends Task {
   // }
 
   // we no longer need this execute method because we ipmlemented once in our base class
-
-  public doExecute(): void {
+  // also change the modifier to protected
+  protected doExecute(): void {
     console.log("Transfer money");
     // this is where we would implement the logic for transferring money
   }

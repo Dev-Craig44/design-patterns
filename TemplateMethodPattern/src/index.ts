@@ -6,7 +6,10 @@ export class Main {
     const task = new TransferMoneyTask(new AuditTrail());
 
     // the problem with this implementation is that we we can skip recording information in the audit trail by calling the execute method directly
-    task.doExecute();
+    // now we get a compilation error because this method is now not accessible outside of our Task class
+    task.execute();
     // this is completely against the idea of implementing this execute method in the base class
   }
 }
+
+Main.main();

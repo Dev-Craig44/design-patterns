@@ -21,5 +21,8 @@ export abstract class Task {
   }
 
   // add the abstract method, public abstract void
-  public abstract doExecute(): void;
+  // to solve the problem of people having access to the doExecute method we will switch the access modifier to protected
+  // this way we can only access this method from the subclasses
+  // it similiar in the sense of having a private method within the class but it makes it visible to the subclasses
+  protected abstract doExecute(): void;
 }
