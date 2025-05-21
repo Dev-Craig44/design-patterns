@@ -5,6 +5,7 @@ export abstract class Task {
   private auditTrail: AuditTrail;
 
   // initialize it using a constructor
+  // having a constructor with this parameter would be useful if we were dealing with an interface
   constructor(auditTrail: AuditTrail) {
     this.auditTrail = new AuditTrail();
   }
