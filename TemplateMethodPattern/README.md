@@ -1,10 +1,10 @@
 # Template Method Pattern
 
-The **Template Method Pattern** is a behavioral design pattern that defines the skeleton of an algorithm in a base class. It allows subclasses to override specific steps without altering the overall structure of the algorithm. This approach promotes code reuse, enforces a consistent process, and provides flexibility for customizing individual steps.
+The **Template Method Pattern** is a behavioral design pattern that defines the skeleton of an algorithm in a base class, allowing subclasses to override specific steps without changing the overall structure. This promotes code reuse, enforces a consistent process, and provides flexibility for customizing individual steps.
 
 ## Git Workflow Note
 
-While initializing the project repository, all modified files were accidentally staged before making the initial commit. To correct this, the following command was used to unstage all files:
+When initializing the project repository, all modified files were accidentally staged before the initial commit. To fix this, the following command was used to unstage all files:
 
 ```bash
 git restore --staged .
@@ -13,7 +13,7 @@ git restore --staged .
 ## Problems & Improvements
 
 - Address issues identified in the task files.
-- Consider using encapsulation to hide implementation details.
+- Use encapsulation to hide implementation details.
 - Create a base class to define a common interface for related classes, improving maintainability and consistency.
 
 ## Solutions
@@ -36,3 +36,11 @@ There are two main approaches to implementing the Template Method Pattern: **pol
 - Optionally, provide default implementations for some methods in the base class—these are known as **hooks**—which subclasses can override if needed.
 
 This pattern enforces a consistent process, promotes code reuse, and allows flexibility for subclasses to customize specific steps.
+
+---
+
+## Exercise
+
+In the Exercises project, review the `template/Window` class, which represents a window in a GUI framework. Application developers use this framework to build desktop applications. The `Window` class has a method for closing a window, but certain windows may need to execute custom code before or after closing.
+
+Since the required behavior varies between windows, it cannot be hardcoded in the `Window` class. Use the Template Method Pattern to solve this problem by allowing subclasses to define custom actions before or after a window is closed.
