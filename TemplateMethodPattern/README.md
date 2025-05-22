@@ -44,3 +44,11 @@ This pattern enforces a consistent process, promotes code reuse, and allows flex
 In the Exercises project, review the `template/Window` class, which represents a window in a GUI framework. Application developers use this framework to build desktop applications. The `Window` class has a method for closing a window, but certain windows may need to execute custom code before or after closing.
 
 Since the required behavior varies between windows, it cannot be hardcoded in the `Window` class. Use the Template Method Pattern to solve this problem by allowing subclasses to define custom actions before or after a window is closed.
+
+## Solution
+
+To apply the Template Method Pattern, create an abstract `WindowBase` class that defines the skeleton of the window-closing algorithm. The `closeWindow()` method in `WindowBase` should call two methods: `beforeClose()` and `afterClose()`. These methods can be abstract or have default (empty) implementations, allowing subclasses to override them with custom behavior as needed.
+
+Each specific window type can then extend `WindowBase` and provide its own implementation for `beforeClose()` and/or `afterClose()`, enabling custom actions to be performed before or after the window is closed, while preserving the overall structure of the closing process.
+
+> Tip: Use <kbd>Cmd</kbd> + <kbd>Opt</kbd> + <kbd>S</kbd> to save all files in your editor tabs.

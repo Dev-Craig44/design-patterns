@@ -1,9 +1,12 @@
-export class Window {
-  close(): void {
-    // TODO: custom windows may need to execute some code before the window is closed.
+import { WindowBase } from "./WindowBase";
 
-    console.log("Removing the window from the screen");
-
-    // TODO: custom windows may need to execute some code after the window is closed.
+export class Window extends WindowBase {
+  protected beforeClose(): void {
+    console.log("Saving window state before closing...");
+    // Add logic to save state, prompt user, etc.
+  }
+  protected afterClose(): void {
+    console.log("Window closed. Cleaning up resources...");
+    // Add logic to clean up resources, notify user, etc.
   }
 }

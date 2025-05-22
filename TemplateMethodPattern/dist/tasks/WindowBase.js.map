@@ -1,0 +1,1 @@
+{"version":3,"file":"WindowBase.js","sourceRoot":"","sources":["../../src/tasks/WindowBase.ts"],"names":[],"mappings":";;;AAAA,MAAsB,UAAU;IAC9B,WAAW;QACT,IAAI,CAAC,WAAW,EAAE,CAAC;QACnB,IAAI,CAAC,KAAK,EAAE,CAAC;QACb,IAAI,CAAC,UAAU,EAAE,CAAC;IACpB,CAAC;IAKO,KAAK;QACX,OAAO,CAAC,GAAG,CAAC,qCAAqC,CAAC,CAAC;IACrD,CAAC;CACF;AAbD,gCAaC"}

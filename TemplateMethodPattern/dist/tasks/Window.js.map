@@ -1,0 +1,1 @@
+{"version":3,"file":"Window.js","sourceRoot":"","sources":["../../src/tasks/Window.ts"],"names":[],"mappings":";;;AAAA,6CAA0C;AAE1C,MAAa,MAAO,SAAQ,uBAAU;IAC1B,WAAW;QACnB,OAAO,CAAC,GAAG,CAAC,uCAAuC,CAAC,CAAC;QACrD,6CAA6C;IAC/C,CAAC;IACS,UAAU;QAClB,OAAO,CAAC,GAAG,CAAC,yCAAyC,CAAC,CAAC;QACvD,qDAAqD;IACvD,CAAC;CACF;AATD,wBASC"}
