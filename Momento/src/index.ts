@@ -1,18 +1,17 @@
-import Originator from "./Originator";
-import Caretaker from "./Caretaker";
+import Editor from "./Editor";
+import History from "./History";
 
-const originator = new Originator();
-const caretaker = new Caretaker();
+const editor = new Editor();
+const history = new History();
 
-originator.setState("Hello");
-caretaker.add(originator.setStateToMomento());
+editor.setState("a");
+history.push(editor.createState());
 
-originator.setState("World");
-caretaker.add(originator.setStateToMomento());
+editor.setState("b");
+history.push(editor.createState());
 
-originator.setState("!!!!");
-caretaker.add(originator.setStateToMomento());
+editor.setState("c");
+editor.restore(history.pop());
+editor.restore(history.pop());
 
-originator.restoreStateFromMomento(caretaker.get(0));
-
-console.log(`Current state after restoring is: ${originator.getState()}`);
+console.log(`Current state after restoring is: ${editor.getState()}`);
