@@ -1,36 +1,25 @@
-import { ToolType } from "./ToolType";
+import { Tool } from "./Tool";
 
-class Canvas {
-  private _currentTool: ToolType;
+export class Canvas {
+  // 1.) Change ToolType to Tool because we are storing Tool instances
+  private _currentTool: Tool;
 
-  public get currentTool(): ToolType {
-    return this._currentTool;
-  }
-  public set currentTool(value: ToolType) {
-    this._currentTool = value;
-  }
-
-  constructor(currentTool: ToolType) {
+  constructor(currentTool: Tool) {
     this._currentTool = currentTool;
   }
 
-  mouseDown(): void {
-    if (this._currentTool === ToolType.Selection) {
-      console.log("Selection icon");
-    } else if (this._currentTool === ToolType.Brush) {
-      console.log("Brush icon");
-    } else if (this._currentTool === ToolType.Eraser) {
-      console.log("Eraser icon");
-    }
+  public get currentTool(): Tool {
+    return this._currentTool;
+  }
+  public set currentTool(value: Tool) {
+    this._currentTool = value;
   }
 
+  //   2.) Add mouseDown and mouseUp methods that delegate to the current tool
+  mouseDown(): void {
+    this._currentTool.mouseDown();
+  }
   mouseUp(): void {
-    if (this._currentTool === ToolType.Selection) {
-      console.log("Draw dashed rectangle");
-    } else if (this._currentTool === ToolType.Brush) {
-      console.log("Draw a line");
-    } else if (this._currentTool === ToolType.Eraser) {
-      console.log("Erase something");
-    }
+    this._currentTool.mouseUp();
   }
 }

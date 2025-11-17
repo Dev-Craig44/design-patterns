@@ -1,17 +1,15 @@
-import { Game } from "./Game";
-import { Jax } from "./Jax";
-import { Scorpio } from "./Scorpio";
+import { Canvas } from "./Canvas";
+import { EraserTool } from "./EraserTool";
 
-const game = new Game(new Jax());
+class main {
+  constructor() {}
 
-game.a();
-game.b();
-game.x();
-game.y();
+  main(): void {
+    let canvas = new Canvas(new EraserTool());
+    canvas.mouseDown();
+    canvas.mouseUp();
+  }
+}
 
-game.setCharacter(new Scorpio());
-
-game.a();
-game.b();
-game.x();
-game.y();
+const app = new main();
+app.main();
