@@ -1,129 +1,100 @@
-# design-patterns
+# Design Patterns
 
 Clean implementations of classic design patterns in TypeScript with real-world examples.
-Here’s your full boilerplate setup for a reusable TypeScript project with:
-• Output to a dist/ folder
-• Clean and build scripts
-• Module settings compatible with modern tooling
-• And a README copy-paste block at the bottom ✅
 
-⸻
+## 📦 Project Setup
 
-✅ 1. tsconfig.json
+Standard TypeScript project structure with `dist/` output.
 
-{
-"compilerOptions": {
-"target": "ES2020",
-"module": "CommonJS",
-"rootDir": "src",
-"outDir": "dist",
-"esModuleInterop": true,
-"forceConsistentCasingInFileNames": true,
-"strict": true,
-"skipLibCheck": true,
-"declaration": true,
-"sourceMap": true
-},
-"include": ["src/**/*"]
-}
+### Quick Start
 
-⸻
-
-✅ 2. package.json
-
-{
-"name": "template-method-pattern",
-"version": "1.0.0",
-"main": "dist/index.js",
-"types": "dist/index.d.ts",
-"scripts": {
-"dev": "tsc --watch",
-"build": "tsc",
-"start": "node dist/index.js",
-"clean": "rm -rf dist"
-},
-"keywords": [],
-"author": "William Kelly",
-"license": "MIT",
-"devDependencies": {
-"typescript": "^5.3.3"
-}
-}
-
-You can install everything with:
-
-npm install --save-dev typescript
-
-⸻
-
-✅ 3. Folder Structure
-
-/template-method-pattern
-├── src/
-│ └── index.ts
-├── dist/
-├── tsconfig.json
-└── package.json
-
-⸻
-
-🧠 README Code Block: Copy/Paste
-
-# 📦 SETUP: Standard TS Project with `dist/` output
-
-# 1. Init and install TypeScript
-
+```bash
+# Initialize and install TypeScript
 npm init -y
 npm install --save-dev typescript
 
-# 2. Create your folder structure
-
+# Create folder structure
 mkdir src
 touch src/index.ts tsconfig.json
+```
 
-# 3. Paste the following into your tsconfig.json:
+### Configuration Files
 
-# {
+#### tsconfig.json
 
-# "compilerOptions": {
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*"]
+}
+```
 
-# "target": "ES2020",
+#### package.json
 
-# "module": "CommonJS",
+```json
+{
+  "name": "design-patterns",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["design-patterns", "typescript"],
+  "author": "William Kelly",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
+```
 
-# "rootDir": "src",
+### Folder Structure
 
-# "outDir": "dist",
+```
+/design-patterns
+├── src/
+│   └── index.ts
+├── dist/
+├── tsconfig.json
+└── package.json
+```
 
-# "esModuleInterop": true,
+### Build and Run
 
-# "strict": true,
-
-# "declaration": true,
-
-# "sourceMap": true
-
-# },
-
-# "include": ["src/**/*"]
-
-# }
-
-# 4. Add scripts to package.json:
-
-# "scripts": {
-
-# "dev": "tsc --watch",
-
-# "build": "tsc",
-
-# "start": "node dist/index.js",
-
-# "clean": "rm -rf dist"
-
-# }
-
-# ✅ Now you're ready to build:
-
+```bash
 npm run build
 npm start
+```
+
+## Design Patterns Implemented
+
+### Iterator Pattern
+
+**Problem:** We need to iterate over a private collection without exposing its underlying representation.
+
+**Solution:** The Iterator Pattern provides a way to access elements of a collection sequentially without exposing the underlying implementation.
+
+**Key Points:**
+
+- Avoid using getters to iterate over collections as this exposes internal structure
+- Getters and setters should be placed at the end of class definitions for better readability
+- Use the Iterator Pattern to provide controlled access to collection elements
+
+---
+
+_More patterns to be documented..._
