@@ -2,6 +2,7 @@ import { Iterator } from "./interfaces/Iterator";
 import { ArrayIterator } from "./iterators/ArrayIterator";
 // 1.) Create the BrowserHistory class that will manage the list of URLs
 export class BrowserHistory {
+  // If tomorrow we decided to change the data structure from an array to a linked list, our main is going to break.
   // 2.) Create private field to store URLs
   private urls: string[] = [];
 

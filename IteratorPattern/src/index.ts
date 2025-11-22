@@ -1,4 +1,4 @@
-import { BrowserHistory } from "./BrowserHistory.js";
+import { BrowserHistory } from "./BrowserHistory";
 
 //  5.) Create an instance of BrowserHistory and test the push and pop methods
 const history = new BrowserHistory();
@@ -10,5 +10,3 @@ history.push("https://onlyfans.com");
 for (let i = 0; i < history.getUrls().length; i++) {
   console.log(history.getUrls()[i]);
 }
-
-console.log(history.getUrls());
