@@ -1,6 +1,6 @@
 import { Task } from "./Task";
 
-// use the `extends` keyword to inherit from the Task class
+// 8.) use the `extends` keyword to inherit from the Task class
 // hover the class name and press `ctrl + .` to auto import the implementation of the |Task| class
 export class TransferMoneyTask extends Task {
   // because we have the an implementation of the constructor in our base class we don't need to implement it here
@@ -12,10 +12,10 @@ export class TransferMoneyTask extends Task {
   // super(auditTrail);
   // }
 
-  // we no longer need this execute method because we ipmlemented once in our base class
+  // 9.) we no longer need this execute method because we ipmlemented once in our base class
   // also change the modifier to protected
   protected doExecute(): void {
+    // 10.) implement the logic for transferring money
     console.log("Transfer money");
-    // this is where we would implement the logic for transferring money
   }
 }
