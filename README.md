@@ -98,3 +98,9 @@ npm start
 ---
 
 _More patterns to be documented..._
+
+## Command Pattern
+
+**Problem:** We need to encapsulate requests as objects, allowing for parameterization of clients with queues, requests, and operations.
+
+**Solution:** The Command Pattern encapsulates a request as an object, thereby allowing for the parameterization of clients with queues, requests, and operations.
