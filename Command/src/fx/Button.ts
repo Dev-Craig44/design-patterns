@@ -1,6 +1,6 @@
 import { Command } from "./Command";
 
-class Button {
+export class Button {
   private _label: string;
   private _command: Command;
 
