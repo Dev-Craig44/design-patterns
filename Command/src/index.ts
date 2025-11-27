@@ -1,14 +1,16 @@
-import { AddCustomerCommand } from "./AddCustomerCommand";
-import { CustomerService } from "./CustomerService";
-// 4.) import the Button class
-import { Button } from "./fx/Button";
+import { BlackAndWhiteCommand } from "./BlackAndWhiteCommand";
+import { CompositeCommand } from "./CompositeCommand";
+import { ResizeCommand } from "./ResizeCommand";
 
 class main {
   main(): void {
-    const service = new CustomerService();
-    const command = new AddCustomerCommand(service);
-    const button = new Button("Add Customer", command);
-    button.click();
+    // 10.) create a new comspite command
+    const composite = new CompositeCommand([]);
+
+    // 11.) add commands to the composite command
+    composite.add(new ResizeCommand());
+    composite.add(new BlackAndWhiteCommand());
+    composite.execute();
   }
 }
 
