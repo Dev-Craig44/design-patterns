@@ -2,9 +2,12 @@ import { CustomerService } from "./CustomerService";
 import { Command } from "./fx/Command";
 
 export class AddCustomerCommand implements Command {
-  constructor() {}
+  private service: CustomerService;
+
+  constructor(service: CustomerService) {
+    this.service = service;
+  }
   execute(): void {
-    const service = new CustomerService();
-    service.addCustomer();
+    this.service.addCustomer();
   }
 }
