@@ -110,3 +110,9 @@ _More patterns to be documented..._
 **Problem:** We need to execute a sequence of commands as a single command.
 
 **Solution:** Since each task is represented as a command object, we can combine multiple commands within a composite object and execute them together as a single operation.
+
+## Undoable Commands
+
+**Problem:** We need to provide the ability to undo operations performed by commands.
+
+**Solution:** Add an UndoableCommand interface that extends the Command interface with an undo method. Each command implementing this interface will provide its own logic for undoing the operation.
