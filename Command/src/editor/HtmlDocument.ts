@@ -1,8 +1,8 @@
 export class HtmlDocument {
   private content: string;
 
-  constructor(content: string) {
-    this.content = content;
+  constructor() {
+    this.content = "";
   }
 
   getContent(): string {
