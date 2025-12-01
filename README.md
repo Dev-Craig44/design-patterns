@@ -81,9 +81,9 @@ npm run build
 npm start
 ```
 
-## Design Patterns Implemented
+### Design Patterns Implemented
 
-### Iterator Pattern
+## Iterator Pattern
 
 **Problem:** We need to iterate over a private collection without exposing its underlying representation.
 
@@ -105,14 +105,19 @@ _More patterns to be documented..._
 
 **Solution:** The Command Pattern encapsulates a request as an object, thereby allowing for the parameterization of clients with queues, requests, and operations.
 
-## Composite Commands
+### Composite Commands
 
 **Problem:** We need to execute a sequence of commands as a single command.
 
 **Solution:** Since each task is represented as a command object, we can combine multiple commands within a composite object and execute them together as a single operation.
 
-## Undoable Commands
+### Undoable Commands
 
 **Problem:** We need to provide the ability to undo operations performed by commands.
 
 **Solution:** Add an UndoableCommand interface that extends the Command interface with an undo method. Each command implementing this interface will provide its own logic for undoing the operation.
+
+## Observer Pattern
+
+**Problem:** We need a way for objects to be notified of changes in other objects without tight coupling.
+**Solution:** The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
