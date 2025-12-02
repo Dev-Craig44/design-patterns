@@ -1,3 +1,4 @@
 export interface Observer {
-  update(): void;
+  // 1.) Introduce the value parameter
+  update(value: number): void;
 }
