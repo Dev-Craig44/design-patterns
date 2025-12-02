@@ -13,7 +13,6 @@ export class DataSource extends Subject {
   }
   public setData(value: number) {
     this._value = value;
-    // 8.) Update call to notifyObservers to not pass data
     this.notifyObservers();
   }
 }
