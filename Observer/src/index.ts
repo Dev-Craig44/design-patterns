@@ -5,15 +5,15 @@ import { SpreadSheet } from "./SpreadSheet";
 class Main {
   static main(): void {
     const dataSource = new DataSource(0);
-    const sheet1 = new SpreadSheet();
-    const sheet2 = new SpreadSheet();
-    const chart = new Chart();
+    const sheet1 = new SpreadSheet(dataSource);
+    const sheet2 = new SpreadSheet(dataSource);
+    const chart = new Chart(dataSource);
 
     dataSource.addObserver(sheet1);
     dataSource.addObserver(sheet2);
     dataSource.addObserver(chart);
 
-    dataSource.data = 10;
+    dataSource.setData(10);
   }
 }
 

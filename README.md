@@ -272,3 +272,5 @@ class Chart implements Observer {
 **Coupling:** Observer decides what to retrieve, more flexible
 
 ### The Push Style
+
+### The Pull Style

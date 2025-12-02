@@ -8,11 +8,12 @@ export class DataSource extends Subject {
     this._value = data;
   }
 
-  public get data(): number {
+  public getData(): number {
     return this._value;
   }
-  public set data(value: number) {
+  public setData(value: number) {
     this._value = value;
-    this.notifyObservers(value);
+    // 8.) Update call to notifyObservers to not pass data
+    this.notifyObservers();
   }
 }

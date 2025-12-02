@@ -11,9 +11,10 @@ export class Subject {
     this.observers = this.observers.filter((obs) => obs !== observer);
   }
 
-  notifyObservers(value: number): void {
+  // 7.) Update notifyObservers to no longer pass data
+  notifyObservers(): void {
     for (const observer of this.observers) {
-      observer.update(value);
+      observer.update();
     }
   }
 }
