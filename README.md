@@ -274,3 +274,44 @@ class Chart implements Observer {
 ### The Push Style
 
 ### The Pull Style
+
+### Exercise: Stock Price Notification System
+
+**Problem:**
+
+We're building an application for watching the price of various stocks. There are two places in our application where we need to display stocks:
+
+- **StatusBar**: Shows popular stocks
+- **StockListView**: Shows the complete list of stocks
+
+**Current Issue:**
+
+When the price of a stock changes, the corresponding views (StatusBar and/or StockListView) need to be refreshed to reflect the latest price. Our application currently does NOT have the ability to communicate stock price changes to these views.
+
+**Task:**
+
+Use the **Observer Pattern** to solve this problem so that:
+
+1. When a stock price changes, all registered observers are automatically notified
+2. The StatusBar and StockListView automatically refresh when stock prices update
+3. The Stock class doesn't need to know about the specific views observing it
+
+**Files to Modify:**
+
+- `Stock.ts` - Should act as the Subject (Observable)
+- `StatusBar.ts` - Should implement Observer interface
+- `StockListView.ts` - Should implement Observer interface
+
+**Expected Behavior:**
+
+```typescript
+const stock = new Stock("AAPL", 150);
+
+const statusBar = new StatusBar();
+const listView = new StockListView();
+
+stock.addObserver(statusBar);
+stock.addObserver(listView);
+
+stock.setPrice(155); // Both views should be automatically notified and updated
+```
