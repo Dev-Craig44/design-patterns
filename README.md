@@ -121,3 +121,152 @@ _More patterns to be documented..._
 
 **Problem:** We need a way for objects to be notified of changes in other objects without tight coupling.
 **Solution:** The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+### Communication Styles
+
+#### **Push Model:** Subject → Observers (Subject controls the data flow)
+
+**How it works:**
+
+- The subject notifies observers by calling their `update()` methods and **passing the changed data as arguments**
+- Observers receive whatever data the subject decides to send
+- The subject controls what information flows to observers
+
+**Example:**
+
+```typescript
+interface Observer {
+  update(value: number): void; // Subject decides what to push
+}
+
+class DataSource extends Subject {
+  notifyObservers() {
+    for (const observer of this.observers) {
+      observer.update(this._value); // Pushes the value
+    }
+  }
+}
+```
+
+**Problem:**
+
+- **Tight coupling:** Observers depend on the specific data format the subject provides
+- **Inflexible:** If one observer needs additional data (e.g., timestamp, metadata), we must modify the `Observer` interface, affecting ALL observers
+- **Interface bloat:** Adding parameters for different observer needs clutters the interface
+
+```typescript
+// Interface keeps growing as needs change
+interface Observer {
+  update(value: number, timestamp: Date, source: string): void; // ❌
+}
+```
+
+---
+
+#### **Pull Model:** Observers ← Subject (Observers control what they need)
+
+**How it works:**
+
+- The subject simply notifies observers that **something changed** (without sending data)
+- Observers receive a reference to the subject
+- Each observer **pulls only the specific data it needs** from the subject
+
+**Example:**
+
+```typescript
+interface Observer {
+  update(subject: Subject): void; // Observer gets reference, not data
+}
+
+class DataSource extends Subject {
+  notifyObservers() {
+    for (const observer of this.observers) {
+      observer.update(this); // Just passes itself
+    }
+  }
+
+  get data(): number {
+    return this._value;
+  }
+  get timestamp(): Date {
+    return this._timestamp;
+  }
+}
+
+class SpreadSheet implements Observer {
+  update(subject: Subject) {
+    if (subject instanceof DataSource) {
+      const value = subject.data; // Pulls only what it needs
+      console.log(`SpreadSheet: ${value}`);
+    }
+  }
+}
+
+class Chart implements Observer {
+  update(subject: Subject) {
+    if (subject instanceof DataSource) {
+      const value = subject.data;
+      const time = subject.timestamp; // Pulls additional data
+      console.log(`Chart: ${value} at ${time}`);
+    }
+  }
+}
+```
+
+**Benefits:**
+
+- **Loose coupling:** Observers don't depend on a specific data format
+- **Flexible:** Each observer pulls only what it needs
+- **Extensible:** Adding new properties to the subject doesn't break existing observers
+- **Efficient:** Reduces unnecessary data transfer when observers need different information
+
+**Trade-off:**
+
+- Observers need to know about the subject's interface (must cast to specific type)
+- Slightly more complex code in observers
+
+---
+
+#### When to Use Which?
+
+| Use Case                                    | Push Model | Pull Model |
+| ------------------------------------------- | ---------- | ---------- |
+| **All observers need the same data**        | ✅         | ❌         |
+| **Different observers need different data** | ❌         | ✅         |
+| **Simple notifications**                    | ✅         | ❌         |
+| **Complex state objects**                   | ❌         | ✅         |
+| **Want to minimize coupling**               | ❌         | ✅         |
+
+---
+
+#### Coupling Direction Explained
+
+**Push Model (Subject → Observers):**
+
+```
+┌──────────┐
+│ Subject  │  Controls what data flows
+└────┬─────┘
+     │ pushes data
+     ▼
+┌──────────┐
+│ Observer │  Receives what's given
+└──────────┘
+```
+
+**Coupling:** Observer interface depends on Subject's data format
+
+**Pull Model (Observers ← Subject):**
+
+```
+┌──────────┐
+│ Subject  │  Provides access to data
+└────▲─────┘
+     │ pulls data
+     │
+┌────┴─────┐
+│ Observer │  Decides what it needs
+└──────────┘
+```
+
+**Coupling:** Observer decides what to retrieve, more flexible
