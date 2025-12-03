@@ -315,3 +315,8 @@ stock.addObserver(listView);
 
 stock.setPrice(155); // Both views should be automatically notified and updated
 ```
+
+## Mediator Pattern
+
+**Problem:** We need to reduce the complexity of communication between multiple objects (colleagues) by centralizing the interactions.
+**Solution:** The Mediator Pattern defines an object (the mediator) that encapsulates how a set of objects interact. This promotes loose coupling by preventing objects from referring to each other explicitly, allowing their interaction to be varied independently.
