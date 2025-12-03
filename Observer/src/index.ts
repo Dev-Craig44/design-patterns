@@ -1,19 +1,29 @@
-import { Chart } from "./Chart";
-import { DataSource } from "./DataSource";
-import { SpreadSheet } from "./SpreadSheet";
+import { StatusBar } from "./exercise/StatusBar";
+import { Stock } from "./exercise/Stock";
+import { StockListView } from "./exercise/StockListView";
 
 class Main {
   static main(): void {
-    const dataSource = new DataSource(0);
-    const sheet1 = new SpreadSheet(dataSource);
-    const sheet2 = new SpreadSheet(dataSource);
-    const chart = new Chart(dataSource);
+    const stockListView = new StockListView();
+    const statusBar = new StatusBar();
 
-    dataSource.addObserver(sheet1);
-    dataSource.addObserver(sheet2);
-    dataSource.addObserver(chart);
+    const appleStock = new Stock("AAPL", 150);
+    appleStock.registerObserver(stockListView);
+    appleStock.registerObserver(statusBar);
 
-    dataSource.setData(10);
+    const googleStock = new Stock("GOOGL", 2800);
+    googleStock.registerObserver(stockListView);
+    googleStock.registerObserver(statusBar);
+
+    // Simulate stock price updates
+    appleStock.setPrice(155);
+    googleStock.setPrice(2825);
+
+    console.log("\nStock List View:");
+    stockListView.show();
+
+    console.log("\nStatus Bar:");
+    statusBar.show();
   }
 }
 

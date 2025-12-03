@@ -1,8 +1,11 @@
-export class Stock {
+import { Subject } from "./Subject";
+
+export class Stock extends Subject {
   private symbol: string;
   private price: number;
 
   constructor(symbol: string, price: number) {
+    super();
     this.symbol = symbol;
     this.price = price;
   }
@@ -13,6 +16,7 @@ export class Stock {
 
   public setPrice(price: number): void {
     this.price = price;
+    this.notifyObservers(this);
   }
 
   public toString(): string {
