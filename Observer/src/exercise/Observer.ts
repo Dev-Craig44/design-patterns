@@ -1,3 +1,3 @@
 export interface Observer {
-  update(data: any): void;
+  update(stockSymbol: string, price: number): void;
 }

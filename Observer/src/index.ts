@@ -4,26 +4,19 @@ import { StockListView } from "./exercise/StockListView";
 
 class Main {
   static main(): void {
-    const stockListView = new StockListView();
-    const statusBar = new StatusBar();
+    const stockManager = new Stock();
 
-    const appleStock = new Stock("AAPL", 150);
-    appleStock.registerObserver(stockListView);
-    appleStock.registerObserver(statusBar);
+    const statusBar = new StatusBar(["AAPL", "GOOGL", "MSFT"]);
+    const stockList = new StockListView();
 
-    const googleStock = new Stock("GOOGL", 2800);
-    googleStock.registerObserver(stockListView);
-    googleStock.registerObserver(statusBar);
+    stockManager.registerObserver(statusBar);
+    stockManager.registerObserver(stockList);
 
-    // Simulate stock price updates
-    appleStock.setPrice(155);
-    googleStock.setPrice(2825);
+    stockManager.setPrice("AAPL", 190.45);
+    stockManager.setPrice("NFLX", 412.3);
+    stockManager.setPrice("GOOGL", 2850.1);
 
-    console.log("\nStock List View:");
-    stockListView.show();
-
-    console.log("\nStatus Bar:");
-    statusBar.show();
+    console.log(stockManager.toString());
   }
 }
 

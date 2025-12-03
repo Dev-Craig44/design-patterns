@@ -1,27 +1,17 @@
 import { Observer } from "./Observer";
-import { Stock } from "./Stock";
 
 export class StatusBar implements Observer {
-  private stocks: Stock[] = [];
+  private popularStocks: Set<string>;
 
-  public addStock(stock: Stock): void {
-    this.stocks.push(stock);
+  constructor(popularStocks: string[]) {
+    this.popularStocks = new Set(popularStocks);
   }
 
-  public show(): void {
-    for (const stock of this.stocks) {
-      console.log(stock);
-    }
-  }
-
-  update(stock: Stock): void {
-    //   notify the status bar about stock updates
-    console.log(`${this.constructor.name} notified: ${stock.toString()}`);
-
-    //
-    const exists = this.stocks.includes(stock);
-    if (!exists) {
-      this.addStock(stock);
+  update(stockSymbol: string, price: number): void {
+    if (this.popularStocks.has(stockSymbol)) {
+      console.log(
+        `StatusBar: Popular stock ${stockSymbol} updated to price ${price}`
+      );
     }
   }
 }
