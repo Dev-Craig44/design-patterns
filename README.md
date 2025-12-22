@@ -320,3 +320,10 @@ stock.setPrice(155); // Both views should be automatically notified and updated
 
 **Problem:** We need to reduce the complexity of communication between multiple objects (colleagues) by centralizing the interactions.
 **Solution:** The Mediator Pattern defines an object (the mediator) that encapsulates how a set of objects interact. This promotes loose coupling by preventing objects from referring to each other explicitly, allowing their interaction to be varied independently.
+
+### Implementation Using The Observer Pattern
+
+**Problem:** We need to implement the Mediator Pattern to manage communication between multiple colleague objects without them directly referencing each other.
+**Solution:** We can use the Observer Pattern to implement the Mediator Pattern. The mediator will act as the subject, and the colleague objects will be observers. When a colleague needs to communicate, it notifies the mediator, which then informs the relevant colleagues.
+
+A functional interface is a type that has exactly one abstract method. They can be used to represent single-method interfaces (functional interfaces) using lambda expressions or method references, making the code more concise and readable.

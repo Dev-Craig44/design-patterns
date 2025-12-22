@@ -1,12 +1,12 @@
 import { Button } from "./Button";
-import { DialogBox } from "./DialogBox";
+// 15.) We don't need the dialogbox anymore
 import { ListBox } from "./ListBox";
 import { TextBox } from "./TextBox";
 
-export class ArticlesDialogBox extends DialogBox {
-  private articlesListBox: ListBox = new ListBox(this);
-  private titleTextBox = new TextBox(this);
-  private saveButton = new Button(this);
+export class ArticlesDialogBox {
+  private articlesListBox: ListBox = new ListBox();
+  private titleTextBox = new TextBox();
+  private saveButton = new Button();
 
   public simulateUserInteraction() {
     this.articlesListBox.setSelection("Article 1");
@@ -16,11 +16,24 @@ export class ArticlesDialogBox extends DialogBox {
     console.log("Button: " + this.saveButton.getIsEnabled());
   }
 
-  changed(control: Button | ListBox | TextBox): void {
-    if (control === this.articlesListBox) this.articleSelected();
-    else if (control === this.titleTextBox) this.titleChanged();
-  }
+  // 16.) We don't need the changed method anymore because we're not going to have a central place for handling all the changes.
+  // 17.) Create a constructor to set up the observers.
+  constructor() {
+    // 18.) Tell each of the UI controls that this dialog box is interested in their changes.
+    // We should pass an object that implements the Observer interface. But we can use a shortcut by passing new anonymous classes that implement the update method.
+    this.articlesListBox.addEventHandler({
+      handle: () => {
+        this.articleSelected();
+      },
+    });
 
+    // 19.) Do the same for the titleTextBox.
+    this.titleTextBox.addEventHandler({
+      handle: () => {
+        this.titleChanged();
+      },
+    });
+  }
   private articleSelected() {
     this.titleTextBox.setContent(this.articlesListBox.getSelection());
     this.saveButton.setIsEnabled(true);

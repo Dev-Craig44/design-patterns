@@ -1,12 +1,9 @@
-import { DialogBox } from "./DialogBox";
 import { UIControl } from "./UIControl";
 
 export class TextBox extends UIControl {
   private _content: string = "";
 
-  constructor(owner: DialogBox) {
-    super(owner);
-  }
+  // 14.) Do the same here by removing the owner from the constructor.
 
   public getContent(): string {
     return this._content;
@@ -14,6 +11,6 @@ export class TextBox extends UIControl {
 
   public setContent(value: string) {
     this._content = value;
-    this.owner.changed(this);
+    this.notifyEventHandlers();
   }
 }
