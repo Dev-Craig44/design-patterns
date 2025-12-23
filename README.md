@@ -327,3 +327,20 @@ stock.setPrice(155); // Both views should be automatically notified and updated
 **Solution:** We can use the Observer Pattern to implement the Mediator Pattern. The mediator will act as the subject, and the colleague objects will be observers. When a colleague needs to communicate, it notifies the mediator, which then informs the relevant colleagues.
 
 A functional interface is a type that has exactly one abstract method. They can be used to represent single-method interfaces (functional interfaces) using lambda expressions or method references, making the code more concise and readable.
+
+### Exercise: Sign Up Dialog Box with Mediator and Observer
+
+**Problem:**
+
+We're using a third-party GUI framework for building an application. We need to build a dialog box for a new user to sign up. On this dialog box we need three UI elements:
+
+- A text box to enter a username
+- A text box to enter a password
+- A check box to agree with the terms
+- A sign up button
+
+The sign up button is only enabled if both text boxes are filled out and the check box is checked.
+
+**Task:**
+
+Use the **Mediator Pattern** with the **Observer Pattern** to implement the coordination between these elements in a class called `SignUpDialogBox`.
